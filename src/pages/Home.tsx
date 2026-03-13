@@ -77,7 +77,7 @@ const Home = () => {
                 <img
                   src={photo}
                   alt="Bharath Reddy Kalva"
-                  className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-3xl border-2 border-primary/50 shadow-2xl"
+                  className="relative w-64 h-80 md:w-72 md:h-96 object-contain rounded-3xl border-2 border-primary/50 shadow-2xl bg-card"
                 />
               </div>
             </motion.div>
