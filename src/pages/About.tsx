@@ -14,7 +14,7 @@ const skills = [
   { icon: SiReact, name: "React.js" },
   { icon: SiSpringboot, name: "Spring Boot" },
   { icon: SiDocker, name: "Docker" },
-  { icon: SiAmazonwebservices, name: "AWS" },
+  { icon: FaAws, name: "AWS" },
   { icon: SiGit, name: "Git" },
   { icon: SiMysql, name: "SQL" },
   { icon: SiLinux, name: "Linux" },
