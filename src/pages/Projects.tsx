@@ -23,7 +23,7 @@ const projects = [
     description:
       "Single-cycle, non-pipelined 16-bit processor supporting 20+ R-type, I-type, and J-type instructions. Designed 8+ core components (ALU, Control Unit, Register File) and deployed on Xilinx Basys3 FPGA.",
     tech: ["Verilog", "FPGA", "Computer Architecture"],
-    github: "#",
+    github: "https://github.com/Bharathreddy-kalva",
   },
   {
     title: "NS-3 Network Simulation & Analysis",
