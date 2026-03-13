@@ -2,7 +2,7 @@ import Typewriter from "typewriter-effect";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-illustration.png";
+import photo from "@/assets/photo.jpg";
 import PageTransition from "@/components/PageTransition";
 
 const Home = () => {
