@@ -1,8 +1,9 @@
 import aboutImg from "@/assets/about-illustration.png";
 import {
-  SiPython, SiJavascript, SiReact, SiSpringboot, SiDocker, SiAmazonwebservices,
+  SiPython, SiJavascript, SiReact, SiSpringboot, SiDocker,
   SiGit, SiMysql, SiCplusplus, SiLinux
 } from "react-icons/si";
+import { FaAws, FaJava } from "react-icons/fa";
 import { FaJava } from "react-icons/fa";
 import { TbBrandVscode } from "react-icons/tb";
 
