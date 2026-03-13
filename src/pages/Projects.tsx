@@ -9,7 +9,7 @@ const projects = [
     description:
       "High-performance client-server application supporting real-time messaging for 50+ concurrent users. Custom application-layer protocol handling 15+ commands including send, broadcast, and block. Multi-threaded server with non-blocking I/O.",
     tech: ["C", "Linux", "Socket Programming", "Multi-Threading"],
-    github: "#",
+    github: "https://github.com/Bharathreddy-kalva",
   },
   {
     title: "Pintos OS Kernel Enhancements",
