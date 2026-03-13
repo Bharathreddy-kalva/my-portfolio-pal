@@ -9,28 +9,28 @@ const projects = [
     description:
       "High-performance client-server application supporting real-time messaging for 50+ concurrent users. Custom application-layer protocol handling 15+ commands including send, broadcast, and block. Multi-threaded server with non-blocking I/O.",
     tech: ["C", "Linux", "Socket Programming", "Multi-Threading"],
-    github: "https://github.com/Bharathreddy-kalva",
+    github: null,
   },
   {
     title: "Pintos OS Kernel Enhancements",
     description:
       "Priority donation system solving priority inversion, advanced MLFQS with fixed-point arithmetic for dynamic thread priority adjustment. Revamped timer_sleep() eliminating busy-waiting, reducing CPU utilization significantly.",
     tech: ["C", "Operating Systems", "Synchronization"],
-    github: "https://github.com/Bharathreddy-kalva",
+    github: null,
   },
   {
     title: "16-Bit MIPS-like Processor",
     description:
       "Single-cycle, non-pipelined 16-bit processor supporting 20+ R-type, I-type, and J-type instructions. Designed 8+ core components (ALU, Control Unit, Register File) and deployed on Xilinx Basys3 FPGA.",
     tech: ["Verilog", "FPGA", "Computer Architecture"],
-    github: "https://github.com/Bharathreddy-kalva",
+    github: "https://github.com/Bharathreddy-kalva/16-Bit-MIPS-Processor",
   },
   {
     title: "NS-3 Network Simulation & Analysis",
     description:
       "Simulated 4 network topologies across 30+ scenarios analyzing routing and congestion control. Processed 10 GB of trace data, modeled TCP congestion with automated performance plotting.",
     tech: ["C++", "TCP/IP", "Wireshark", "NS-3"],
-    github: "https://github.com/Bharathreddy-kalva",
+    github: null,
   },
 ];
 
@@ -74,15 +74,17 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-                >
-                  <AiFillGithub size={18} />
-                  View on GitHub
-                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                  >
+                    <AiFillGithub size={18} />
+                    View on GitHub
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
