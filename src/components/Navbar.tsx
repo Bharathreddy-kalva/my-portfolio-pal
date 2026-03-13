@@ -10,6 +10,7 @@ const navItems = [
   { path: "/about", label: "About", icon: AiOutlineUser },
   { path: "/projects", label: "Projects", icon: AiOutlineFundProjectionScreen },
   { path: "/resume", label: "Resume", icon: CgFileDocument },
+  { path: "/contact", label: "Contact", icon: AiOutlineMail },
 ];
 
 const Navbar = () => {
