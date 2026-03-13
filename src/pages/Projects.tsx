@@ -30,7 +30,7 @@ const projects = [
     description:
       "Simulated 4 network topologies across 30+ scenarios analyzing routing and congestion control. Processed 10 GB of trace data, modeled TCP congestion with automated performance plotting.",
     tech: ["C++", "TCP/IP", "Wireshark", "NS-3"],
-    github: "#",
+    github: "https://github.com/Bharathreddy-kalva",
   },
 ];
 
