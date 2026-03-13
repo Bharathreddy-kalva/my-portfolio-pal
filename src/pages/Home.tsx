@@ -47,7 +47,7 @@ const Home = () => {
                 transition={{ duration: 0.5, delay: 0.6 }}
               >
                 <a
-                  href="https://github.com/"
+                  href="https://github.com/Bharathreddy-kalva"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 px-6 py-3 bg-primary/20 text-primary rounded-lg font-medium hover:bg-primary/30 transition-colors border border-primary/30"
