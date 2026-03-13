@@ -17,10 +17,10 @@ const ParticleBackground = () => {
         fpsLimit: 60,
         particles: {
           number: { value: 80, density: { enable: true, area: 800 } },
-          color: { value: "#e8a317" },
+          color: { value: "#22c55e" },
           links: {
             enable: true,
-            color: "#e8a317",
+            color: "#22c55e",
             distance: 150,
             opacity: 0.15,
             width: 1,
