@@ -4,7 +4,6 @@ import {
   SiGit, SiMysql, SiCplusplus, SiLinux
 } from "react-icons/si";
 import { FaAws, FaJava } from "react-icons/fa";
-import { FaJava } from "react-icons/fa";
 import { TbBrandVscode } from "react-icons/tb";
 
 const skills = [
