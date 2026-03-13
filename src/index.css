@@ -83,9 +83,9 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: hsl(250 25% 8%);
+  background: hsl(220 30% 6%);
 }
 ::-webkit-scrollbar-thumb {
-  background: hsl(270 70% 60% / 0.5);
+  background: hsl(225 80% 58% / 0.5);
   border-radius: 3px;
 }
