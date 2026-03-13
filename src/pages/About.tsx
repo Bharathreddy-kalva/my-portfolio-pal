@@ -68,25 +68,37 @@ const About = () => {
             </ScrollReveal>
           </div>
 
-          {/* Skills */}
+          {/* Skills with progress bars */}
           <ScrollReveal className="mb-16">
             <h2 className="text-3xl font-bold text-center mb-2">
               Professional <span className="text-primary">Skillset</span>
             </h2>
             <div className="w-16 h-1 bg-primary rounded mx-auto mb-10" />
-            <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-6 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 max-w-4xl mx-auto">
               {skills.map((skill, i) => (
                 <motion.div
                   key={skill.name}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: i * 0.05 }}
-                  whileHover={{ scale: 1.1, y: -4 }}
-                  className="flex flex-col items-center gap-2 p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-[var(--shadow-glow)] transition-all duration-300"
+                  transition={{ duration: 0.4, delay: i * 0.05 }}
+                  whileHover={{ scale: 1.03 }}
+                  className="p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-[var(--shadow-glow)] transition-all duration-300"
                 >
-                  <skill.icon className="text-3xl text-primary" />
-                  <span className="text-xs text-muted-foreground font-medium">{skill.name}</span>
+                  <div className="flex items-center gap-3 mb-3">
+                    <skill.icon className="text-2xl text-primary" />
+                    <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                    <span className="text-xs text-muted-foreground ml-auto">{skill.level}%</span>
+                  </div>
+                  <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
+                    <motion.div
+                      className="h-full rounded-full bg-primary"
+                      initial={{ width: 0 }}
+                      whileInView={{ width: `${skill.level}%` }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 1, delay: i * 0.05 + 0.3, ease: "easeOut" }}
+                    />
+                  </div>
                 </motion.div>
               ))}
             </div>
