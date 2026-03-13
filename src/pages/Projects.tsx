@@ -16,7 +16,7 @@ const projects = [
     description:
       "Priority donation system solving priority inversion, advanced MLFQS with fixed-point arithmetic for dynamic thread priority adjustment. Revamped timer_sleep() eliminating busy-waiting, reducing CPU utilization significantly.",
     tech: ["C", "Operating Systems", "Synchronization"],
-    github: "#",
+    github: "https://github.com/Bharathreddy-kalva",
   },
   {
     title: "16-Bit MIPS-like Processor",
