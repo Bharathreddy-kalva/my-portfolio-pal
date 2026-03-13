@@ -74,15 +74,17 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-                >
-                  <AiFillGithub size={18} />
-                  View on GitHub
-                </a>
+                {project.github && (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                  >
+                    <AiFillGithub size={18} />
+                    View on GitHub
+                  </a>
+                )}
               </motion.div>
             ))}
           </div>
