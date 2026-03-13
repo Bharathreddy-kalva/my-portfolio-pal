@@ -114,6 +114,36 @@ const About = () => {
               ))}
             </div>
           </ScrollReveal>
+
+          {/* Achievements */}
+          <ScrollReveal className="mt-16">
+            <h2 className="text-3xl font-bold text-center mb-2">
+              Achievements & <span className="text-primary">Highlights</span>
+            </h2>
+            <div className="w-16 h-1 bg-primary rounded mx-auto mb-10" />
+            <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
+              {[
+                { emoji: "🎓", title: "MS in Computer Science", desc: "University at Buffalo — GPA 3.1" },
+                { emoji: "💼", title: "2+ Years Industry Experience", desc: "Built scalable systems for 5,000+ daily users at Ozonetel" },
+                { emoji: "🏗️", title: "Full-Stack Expertise", desc: "React, Spring Boot, AWS — end-to-end product delivery" },
+                { emoji: "⚙️", title: "Systems Programming", desc: "OS kernel enhancements, FPGA processor design, network simulation" },
+              ].map((item, i) => (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: i * 0.1 }}
+                  whileHover={{ y: -4 }}
+                  className="p-5 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-[var(--shadow-glow)] transition-all"
+                >
+                  <span className="text-2xl mb-3 block">{item.emoji}</span>
+                  <h4 className="font-bold text-foreground mb-1">{item.title}</h4>
+                  <p className="text-sm text-muted-foreground">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
     </PageTransition>

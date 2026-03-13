@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { AiOutlineHome, AiOutlineUser, AiOutlineFundProjectionScreen } from "react-icons/ai";
+import { AiOutlineHome, AiOutlineUser, AiOutlineFundProjectionScreen, AiOutlineMail } from "react-icons/ai";
 import { CgFileDocument } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
@@ -10,6 +10,7 @@ const navItems = [
   { path: "/about", label: "About", icon: AiOutlineUser },
   { path: "/projects", label: "Projects", icon: AiOutlineFundProjectionScreen },
   { path: "/resume", label: "Resume", icon: CgFileDocument },
+  { path: "/contact", label: "Contact", icon: AiOutlineMail },
 ];
 
 const Navbar = () => {
