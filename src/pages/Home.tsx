@@ -2,7 +2,7 @@ import Typewriter from "typewriter-effect";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
-import heroImg from "@/assets/hero-illustration.png";
+import photo from "@/assets/photo.jpg";
 import PageTransition from "@/components/PageTransition";
 
 const Home = () => {
@@ -72,11 +72,14 @@ const Home = () => {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.3, type: "spring", stiffness: 100 }}
             >
-              <img
-                src={heroImg}
-                alt="Developer illustration"
-                className="w-full max-w-md drop-shadow-2xl"
-              />
+              <div className="relative">
+                <div className="absolute inset-0 bg-primary/30 rounded-3xl blur-2xl" />
+                <img
+                  src={photo}
+                  alt="Bharath Reddy Kalva"
+                  className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-3xl border-2 border-primary/50 shadow-2xl"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
