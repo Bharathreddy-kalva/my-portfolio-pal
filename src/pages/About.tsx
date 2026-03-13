@@ -10,18 +10,18 @@ import PageTransition from "@/components/PageTransition";
 import ScrollReveal from "@/components/ScrollReveal";
 
 const skills = [
-  { icon: SiPython, name: "Python" },
-  { icon: FaJava, name: "Java" },
-  { icon: SiCplusplus, name: "C/C++" },
-  { icon: SiJavascript, name: "JavaScript" },
-  { icon: SiReact, name: "React.js" },
-  { icon: SiSpringboot, name: "Spring Boot" },
-  { icon: SiDocker, name: "Docker" },
-  { icon: FaAws, name: "AWS" },
-  { icon: SiGit, name: "Git" },
-  { icon: SiMysql, name: "SQL" },
-  { icon: SiLinux, name: "Linux" },
-  { icon: TbBrandVscode, name: "VS Code" },
+  { icon: SiPython, name: "Python", level: 85 },
+  { icon: FaJava, name: "Java", level: 90 },
+  { icon: SiCplusplus, name: "C/C++", level: 80 },
+  { icon: SiJavascript, name: "JavaScript", level: 85 },
+  { icon: SiReact, name: "React.js", level: 88 },
+  { icon: SiSpringboot, name: "Spring Boot", level: 82 },
+  { icon: SiDocker, name: "Docker", level: 75 },
+  { icon: FaAws, name: "AWS", level: 70 },
+  { icon: SiGit, name: "Git", level: 90 },
+  { icon: SiMysql, name: "SQL", level: 85 },
+  { icon: SiLinux, name: "Linux", level: 80 },
+  { icon: TbBrandVscode, name: "VS Code", level: 92 },
 ];
 
 const tools = [
