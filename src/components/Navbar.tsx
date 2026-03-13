@@ -4,6 +4,8 @@ import { AiOutlineHome, AiOutlineUser, AiOutlineFundProjectionScreen, AiOutlineM
 import { CgFileDocument } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
+import { BsSun, BsMoon } from "react-icons/bs";
+import { useTheme } from "@/hooks/use-theme";
 
 const navItems = [
   { path: "/", label: "Home", icon: AiOutlineHome },
@@ -16,6 +18,7 @@ const navItems = [
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -40,15 +43,31 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
+          <button
+            onClick={toggleTheme}
+            className="ml-2 p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <BsSun size={18} /> : <BsMoon size={18} />}
+          </button>
         </div>
 
         {/* Mobile toggle */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground p-2"
-        >
-          {isOpen ? <RxCross2 size={24} /> : <GiHamburgerMenu size={24} />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="text-muted-foreground hover:text-primary p-2"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <BsSun size={20} /> : <BsMoon size={20} />}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="text-foreground p-2"
+          >
+            {isOpen ? <RxCross2 size={24} /> : <GiHamburgerMenu size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
