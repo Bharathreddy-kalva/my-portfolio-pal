@@ -85,19 +85,9 @@ const About = () => {
                   whileHover={{ scale: 1.03 }}
                   className="p-4 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-[var(--shadow-glow)] transition-all duration-300"
                 >
-                  <div className="flex items-center gap-3 mb-3">
+                  <div className="flex items-center gap-3">
                     <skill.icon className="text-2xl text-primary" />
                     <span className="text-sm font-medium text-foreground">{skill.name}</span>
-                    <span className="text-xs text-muted-foreground ml-auto">{skill.level}%</span>
-                  </div>
-                  <div className="w-full h-2 rounded-full bg-muted overflow-hidden">
-                    <motion.div
-                      className="h-full rounded-full bg-primary"
-                      initial={{ width: 0 }}
-                      whileInView={{ width: `${skill.level}%` }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1, delay: i * 0.05 + 0.3, ease: "easeOut" }}
-                    />
                   </div>
                 </motion.div>
               ))}
