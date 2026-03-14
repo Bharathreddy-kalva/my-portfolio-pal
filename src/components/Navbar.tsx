@@ -40,13 +40,6 @@ const Navbar = () => {
               {item.label}
             </Link>
           ))}
-          <button
-            onClick={toggleTheme}
-            className="ml-2 p-2 rounded-lg text-muted-foreground hover:text-primary hover:bg-secondary transition-colors"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <BsSun size={18} /> : <BsMoon size={18} />}
-          </button>
         </div>
 
         {/* Mobile toggle */}
