@@ -2,17 +2,15 @@ import { useCallback } from "react";
 import Particles from "react-tsparticles";
 import { loadSlim } from "tsparticles-slim";
 import type { Engine } from "tsparticles-engine";
-import { useTheme } from "@/hooks/use-theme";
 
 const ParticleBackground = () => {
-  const { theme } = useTheme();
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
-  const particleColor = theme === "dark" ? "#4f6ef7" : "#3b5de7";
-  const particleOpacity = theme === "dark" ? 0.3 : 0.4;
-  const linkOpacity = theme === "dark" ? 0.15 : 0.2;
+  const particleColor = "#3b5de7";
+  const particleOpacity = 0.4;
+  const linkOpacity = 0.2;
 
   return (
     <Particles
