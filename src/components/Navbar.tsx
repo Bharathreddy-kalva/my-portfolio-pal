@@ -4,8 +4,6 @@ import { AiOutlineHome, AiOutlineUser, AiOutlineFundProjectionScreen, AiOutlineM
 import { CgFileDocument } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RxCross2 } from "react-icons/rx";
-import { BsSun, BsMoon } from "react-icons/bs";
-import { useTheme } from "@/hooks/use-theme";
 
 const navItems = [
   { path: "/", label: "Home", icon: AiOutlineHome },
