@@ -13,7 +13,8 @@ const Resume = () => {
             </h2>
             <div className="flex justify-center mb-12">
               <a
-                href="#"
+                href="/Kalva_Resume.docx"
+                download
                 className="flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:opacity-90 transition-opacity"
               >
                 <AiOutlineDownload size={20} />
