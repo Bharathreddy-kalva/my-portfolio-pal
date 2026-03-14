@@ -43,14 +43,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile toggle */}
-        <div className="md:hidden flex items-center gap-2">
-          <button
-            onClick={toggleTheme}
-            className="text-muted-foreground hover:text-primary p-2"
-            aria-label="Toggle theme"
-          >
-            {theme === "dark" ? <BsSun size={20} /> : <BsMoon size={20} />}
-          </button>
+        <div className="md:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="text-foreground p-2"
