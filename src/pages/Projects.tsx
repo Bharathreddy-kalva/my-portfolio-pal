@@ -5,6 +5,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const projects = [
   {
+    title: "Distributed Log Monitoring System",
+    description:
+      "A distributed observability platform collecting logs from simulated microservices, streaming through Kafka, storing in PostgreSQL, and visualizing on a real-time dashboard. Features event-driven architecture, REST APIs for querying, and interactive charts with error rate monitoring.",
+    tech: ["Java", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "Docker", "Python", "React"],
+    github: "https://github.com/Bharathreddy-kalva/distributed-log-monitoring-system",
+  },
+  {
     title: "Distributed Multi-Client Chat System",
     description:
       "High-performance client-server application supporting real-time messaging for 50+ concurrent users. Custom application-layer protocol handling 15+ commands including send, broadcast, and block. Multi-threaded server with non-blocking I/O.",
