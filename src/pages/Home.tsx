@@ -2,7 +2,7 @@ import Typewriter from "typewriter-effect";
 import { AiFillGithub } from "react-icons/ai";
 import { FaLinkedinIn } from "react-icons/fa";
 import { motion } from "framer-motion";
-import photo from "@/assets/photo.png";
+import profilePhoto from "@/assets/profile-photo.png";
 import PageTransition from "@/components/PageTransition";
 
 const Home = () => {
@@ -75,7 +75,7 @@ const Home = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-primary/30 rounded-3xl blur-2xl" />
                 <img
-                  src={photo}
+                  src={profilePhoto}
                   alt="Bharath Reddy Kalva"
                   className="relative w-64 h-64 md:w-72 md:h-72 object-cover rounded-full border-2 border-primary/50 shadow-2xl"
                 />
