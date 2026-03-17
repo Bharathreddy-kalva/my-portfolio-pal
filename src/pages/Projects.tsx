@@ -11,6 +11,7 @@ const projects = [
       "A distributed observability platform collecting logs from simulated microservices, streaming through Kafka, storing in PostgreSQL, and visualizing on a real-time dashboard. Features event-driven architecture, REST APIs for querying, and interactive charts with error rate monitoring.",
     tech: ["Java", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "Docker", "Python", "React"],
     github: "https://github.com/Bharathreddy-kalva/distributed-log-monitoring-system",
+    live: "https://log-harmony-dashboard.vercel.app",
   },
   {
     title: "Distributed Multi-Client Chat System",
