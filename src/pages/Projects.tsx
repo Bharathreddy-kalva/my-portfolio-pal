@@ -1,4 +1,5 @@
 import { AiFillGithub } from "react-icons/ai";
+import { ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -10,6 +11,7 @@ const projects = [
       "A distributed observability platform collecting logs from simulated microservices, streaming through Kafka, storing in PostgreSQL, and visualizing on a real-time dashboard. Features event-driven architecture, REST APIs for querying, and interactive charts with error rate monitoring.",
     tech: ["Java", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "Docker", "Python", "React"],
     github: "https://github.com/Bharathreddy-kalva/distributed-log-monitoring-system",
+    live: "https://log-harmony-dashboard.vercel.app",
   },
   {
     title: "Distributed Multi-Client Chat System",
@@ -81,17 +83,30 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                {project.github && (
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-                  >
-                    <AiFillGithub size={18} />
-                    View on GitHub
-                  </a>
-                )}
+                <div className="flex items-center gap-4">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <AiFillGithub size={18} />
+                      GitHub
+                    </a>
+                  )}
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
+                </div>
               </motion.div>
             ))}
           </div>
