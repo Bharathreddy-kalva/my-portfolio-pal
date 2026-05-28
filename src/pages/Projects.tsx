@@ -20,7 +20,6 @@ const projects = [
     github: "https://github.com/Bharathreddy-kalva/distributed-log-monitoring-system",
     live: "https://log-harmony-dashboard.vercel.app",
   },
-]
   {
     title: "Distributed Multi-Client Chat System",
     description:
