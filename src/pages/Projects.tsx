@@ -6,6 +6,13 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const projects = [
   {
+    title: "ML Model Serving & Monitoring Platform",
+    description:
+      "End-to-end ML platform with a FastAPI inference API, MLflow model registry, and A/B testing between model versions. Features real-time PSI-based data drift detection dashboard that auto-triggers retraining when drift is detected. Full CI/CD pipeline with GitHub Actions deploying to Render via Docker containers.",
+    tech: ["Python", "FastAPI", "MLflow", "React", "PostgreSQL", "Docker", "GitHub Actions"],
+    github: "https://github.com/Bharathreddy-kalva/ml-serving-platform",
+  },
+  {
     title: "Distributed Log Monitoring System",
     description:
       "A distributed observability platform collecting logs from simulated microservices, streaming through Kafka, storing in PostgreSQL, and visualizing on a real-time dashboard. Features event-driven architecture, REST APIs for querying, and interactive charts with error rate monitoring.",
