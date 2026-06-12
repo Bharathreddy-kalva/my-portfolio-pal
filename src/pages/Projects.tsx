@@ -6,6 +6,14 @@ import ScrollReveal from "@/components/ScrollReveal";
 
 const projects = [
   {
+    title: "Research Brain",
+    description:
+      "A living research brain that tracks topics, remembers what it has already learned, checks for new developments, and updates the user through Slack or Discord. Users create a topic, the app researches it, builds a memory layer, then continuously monitors for new developments — sending concise updates only when something meaningful changes. Users can also drop links directly in Slack/Discord and the app reads them, compares with existing memory, and replies with what changed. Built with RocketRide for the AI pipeline, Butterbase for the backend and database, XTrace for the memory layer, and Photon for Slack/Discord messaging.",
+    tech: ["RocketRide", "Butterbase", "XTrace", "Photon", "AI", "Research", "Automation", "Slack", "Discord"],
+    github: null,
+    live: "https://research-brain.butterbase.dev",
+  },
+  {
     title: "ML Model Serving & Monitoring Platform",
     description:
       "End-to-end ML platform with a FastAPI inference API, MLflow model registry, and A/B testing between model versions. Features real-time PSI-based data drift detection dashboard that auto-triggers retraining when drift is detected. Full CI/CD pipeline with GitHub Actions deploying to Render via Docker containers.",
