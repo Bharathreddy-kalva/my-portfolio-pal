@@ -4,56 +4,65 @@ import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import ScrollReveal from "@/components/ScrollReveal";
 
+const badgeStyles: Record<string, string> = {
+  "Hackathon Project": "bg-orange-500/10 text-orange-600 border-orange-500/20",
+  "Personal Project": "bg-blue-500/10 text-blue-600 border-blue-500/20",
+  "Professional Project": "bg-purple-500/10 text-purple-600 border-purple-500/20",
+};
+
 const projects = [
   {
-    title: "Research Brain",
+    title: "PackMind",
+    subtitle: "AI Travel Packing Assistant",
+    badge: "Personal Project",
+    tagline:
+      "A full-stack web app that generates personalized, weather-aware packing lists using AI.",
     description:
-      "A living research brain that tracks topics, remembers what it has already learned, checks for new developments, and updates the user through Slack or Discord. Users create a topic, the app researches it, builds a memory layer, then continuously monitors for new developments — sending concise updates only when something meaningful changes. Users can also drop links directly in Slack/Discord and the app reads them, compares with existing memory, and replies with what changed. Built with RocketRide for the AI pipeline, Butterbase for the backend and database, XTrace for the memory layer, and Photon for Slack/Discord messaging.",
+      "Users create trips through a conversational AI chat or guided form and get an LLM-generated packing list tailored to their destination, weather, and activities. The app includes AI-researched destination intelligence — cultural notes, weather warnings, and travel tips — and sends automated WhatsApp/SMS packing reminders before departure via a Twilio + Vercel Cron pipeline. Built the full stack end-to-end including auth, database schema, AI integration, and messaging pipeline.",
+    tech: ["Next.js", "TypeScript", "React", "Tailwind CSS", "Supabase", "Clerk", "Groq API", "Twilio", "OpenWeatherMap", "Vercel Cron Jobs"],
+    github: "https://github.com/Bharathreddy-kalva/packmind",
+    live: "https://packmind-two.vercel.app",
+  },
+  {
+    title: "Research Brain",
+    badge: "Hackathon Project",
+    tagline:
+      "A living research brain that tracks topics, remembers what it has already learned, and proactively updates you through Slack or Discord.",
+    description:
+      "Built during a hackathon using RocketRide for AI research workflows, Butterbase as the backend and database, XTrace as the long-term memory layer, and Photon for Slack/Discord communication. The system continuously monitors topics, stays silent when nothing meaningful changes, and sends concise updates only when new developments are detected. Users can also drop links directly in Slack/Discord and the app reads, compares against memory, and replies with what changed.",
     tech: ["RocketRide", "Butterbase", "XTrace", "Photon", "AI", "Research", "Automation", "Slack", "Discord"],
     github: null,
     live: "https://research-brain.butterbase.dev",
   },
   {
     title: "ML Model Serving & Monitoring Platform",
+    badge: "Personal Project",
+    tagline:
+      "An end-to-end ML platform for serving, monitoring, and automatically retraining production models.",
     description:
-      "End-to-end ML platform with a FastAPI inference API, MLflow model registry, and A/B testing between model versions. Features real-time PSI-based data drift detection dashboard that auto-triggers retraining when drift is detected. Full CI/CD pipeline with GitHub Actions deploying to Render via Docker containers.",
+      "Built a FastAPI inference API with an MLflow model registry and A/B testing between model versions. Added a real-time PSI-based data drift detection dashboard that auto-triggers retraining when drift is detected, backed by a full CI/CD pipeline with GitHub Actions deploying to Render via Docker containers.",
     tech: ["Python", "FastAPI", "MLflow", "React", "PostgreSQL", "Docker", "GitHub Actions"],
     github: "https://github.com/Bharathreddy-kalva/ml-serving-platform",
   },
   {
     title: "Distributed Log Monitoring System",
+    badge: "Personal Project",
+    tagline:
+      "A distributed observability platform for collecting, streaming, and visualizing microservice logs in real time.",
     description:
-      "A distributed observability platform collecting logs from simulated microservices, streaming through Kafka, storing in PostgreSQL, and visualizing on a real-time dashboard. Features event-driven architecture, REST APIs for querying, and interactive charts with error rate monitoring.",
+      "Collects logs from simulated microservices, streams them through Kafka, stores them in PostgreSQL, and visualizes them on a real-time dashboard. Features an event-driven architecture, REST APIs for querying, and interactive charts with error rate monitoring.",
     tech: ["Java", "Spring Boot", "Apache Kafka", "PostgreSQL", "Redis", "Docker", "Python", "React"],
     github: "https://github.com/Bharathreddy-kalva/distributed-log-monitoring-system",
     live: "https://log-harmony-dashboard.vercel.app",
   },
   {
     title: "Distributed Multi-Client Chat System",
+    badge: "Personal Project",
+    tagline:
+      "A high-performance multi-threaded chat server supporting real-time messaging for 50+ concurrent users.",
     description:
-      "High-performance client-server application supporting real-time messaging for 50+ concurrent users. Custom application-layer protocol handling 15+ commands including send, broadcast, and block. Multi-threaded server with non-blocking I/O.",
+      "Built a custom application-layer protocol handling 15+ commands including send, broadcast, and block, served by a multi-threaded server with non-blocking I/O for high-performance concurrent connections.",
     tech: ["C", "Linux", "Socket Programming", "Multi-Threading"],
-    github: null,
-  },
-  {
-    title: "Pintos OS Kernel Enhancements",
-    description:
-      "Priority donation system solving priority inversion, advanced MLFQS with fixed-point arithmetic for dynamic thread priority adjustment. Revamped timer_sleep() eliminating busy-waiting, reducing CPU utilization significantly.",
-    tech: ["C", "Operating Systems", "Synchronization"],
-    github: null,
-  },
-  {
-    title: "16-Bit MIPS-like Processor",
-    description:
-      "Single-cycle, non-pipelined 16-bit processor supporting 20+ R-type, I-type, and J-type instructions. Designed 8+ core components (ALU, Control Unit, Register File) and deployed on Xilinx Basys3 FPGA.",
-    tech: ["Verilog", "FPGA", "Computer Architecture"],
-    github: "https://github.com/Bharathreddy-kalva/16-Bit-MIPS-Processor",
-  },
-  {
-    title: "NS-3 Network Simulation & Analysis",
-    description:
-      "Simulated 4 network topologies across 30+ scenarios analyzing routing and congestion control. Processed 10 GB of trace data, modeled TCP congestion with automated performance plotting.",
-    tech: ["C++", "TCP/IP", "Wireshark", "NS-3"],
     github: null,
   },
 ];
@@ -71,20 +80,30 @@ const Projects = () => {
               Here are a few projects I've worked on recently.
             </p>
           </ScrollReveal>
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="flex flex-col max-w-4xl mx-auto divide-y divide-border">
             {projects.map((project, i) => (
-              <motion.div
+              <motion.article
                 key={project.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
                 transition={{ duration: 0.4, delay: i * 0.1 }}
-                whileHover={{ y: -6 }}
-                className="group p-6 rounded-xl bg-card border border-border hover:border-primary/50 hover:shadow-[var(--shadow-glow)] transition-all duration-300"
+                className="group py-8 px-6 border-l-2 border-l-transparent hover:border-l-primary hover:bg-primary/5 transition-all duration-300"
               >
-                <h3 className="text-lg font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <span
+                  className={`inline-block text-xs font-semibold px-3 py-1 rounded-full border mb-3 ${badgeStyles[project.badge]}`}
+                >
+                  {project.badge}
+                </span>
+                <h3 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
                   {project.title}
+                  {project.subtitle && (
+                    <span className="text-muted-foreground font-normal"> — {project.subtitle}</span>
+                  )}
                 </h3>
+                <p className="text-base text-muted-foreground mb-3">
+                  {project.tagline}
+                </p>
                 <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                   {project.description}
                 </p>
@@ -122,7 +141,7 @@ const Projects = () => {
                     </a>
                   )}
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
