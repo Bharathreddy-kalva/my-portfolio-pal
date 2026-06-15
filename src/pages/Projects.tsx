@@ -10,7 +10,19 @@ const badgeStyles: Record<string, string> = {
   "Professional Project": "bg-purple-500/10 text-purple-600 border-purple-500/20",
 };
 
-const projects = [
+type Project = {
+  title: string;
+  subtitle?: string;
+  badge: string;
+  tagline: string;
+  description: string;
+  tech: string[];
+  github?: string | null;
+  live?: string;
+  image?: string;
+};
+
+const projects: Project[] = [
   {
     title: "PackMind",
     subtitle: "AI Travel Packing Assistant",
@@ -67,6 +79,12 @@ const projects = [
   },
 ];
 
+const getUrlLabel = (project: Project) => {
+  const url = project.live || project.github;
+  if (!url) return "project";
+  return url.replace(/^https?:\/\//, "").replace(/\/$/, "");
+};
+
 const Projects = () => {
   return (
     <PageTransition>
@@ -80,65 +98,95 @@ const Projects = () => {
               Here are a few projects I've worked on recently.
             </p>
           </ScrollReveal>
-          <div className="flex flex-col max-w-4xl mx-auto divide-y divide-border">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {projects.map((project, i) => (
               <motion.article
                 key={project.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                className="group py-8 px-6 border-l-2 border-l-transparent hover:border-l-primary hover:bg-primary/5 transition-all duration-300"
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="group flex flex-col rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-primary/50 hover:shadow-[var(--shadow-glow)]"
               >
-                <span
-                  className={`inline-block text-xs font-semibold px-3 py-1 rounded-full border mb-3 ${badgeStyles[project.badge]}`}
-                >
-                  {project.badge}
-                </span>
-                <h3 className="text-2xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-                  {project.title}
-                  {project.subtitle && (
-                    <span className="text-muted-foreground font-normal"> — {project.subtitle}</span>
-                  )}
-                </h3>
-                <p className="text-base text-muted-foreground mb-3">
-                  {project.tagline}
-                </p>
-                <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tech.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {t}
-                    </span>
-                  ))}
+                {/* Browser chrome mockup */}
+                <div className="border-b border-border">
+                  <div className="flex items-center gap-2 bg-secondary px-3 py-2">
+                    <div className="flex gap-1.5">
+                      <span className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/70" />
+                      <span className="h-2.5 w-2.5 rounded-full bg-green-500/70" />
+                    </div>
+                    <div className="flex-1 truncate rounded bg-muted px-2 py-0.5 text-center text-[10px] text-muted-foreground">
+                      {getUrlLabel(project)}
+                    </div>
+                  </div>
+                  <div className="flex aspect-video items-center justify-center [background-image:var(--gradient-card)]">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <span className="px-4 text-center font-mono text-sm font-semibold text-primary/40">
+                        {project.title}
+                      </span>
+                    )}
+                  </div>
                 </div>
-                <div className="flex items-center gap-4">
-                  {project.github && (
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-                    >
-                      <AiFillGithub size={18} />
-                      GitHub
-                    </a>
-                  )}
-                  {project.live && (
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-                    >
-                      <ExternalLink size={16} />
-                      Live Demo
-                    </a>
+
+                <div className="flex flex-1 flex-col p-6">
+                  <span
+                    className={`mb-3 inline-block self-start rounded-full border px-3 py-1 text-xs font-semibold ${badgeStyles[project.badge]}`}
+                  >
+                    {project.badge}
+                  </span>
+                  <h3 className="mb-2 font-mono text-lg font-bold text-foreground transition-colors group-hover:text-primary">
+                    {project.title}
+                    {project.subtitle && (
+                      <span className="block text-sm font-normal text-muted-foreground">
+                        {project.subtitle}
+                      </span>
+                    )}
+                  </h3>
+                  <p className="mb-4 text-sm text-muted-foreground leading-relaxed">
+                    {project.tagline}
+                  </p>
+                  <div className="mb-4 flex flex-1 flex-wrap items-start gap-2">
+                    {project.tech.map((t) => (
+                      <span
+                        key={t}
+                        className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary border border-primary/20"
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  {(project.github || project.live) && (
+                    <div className="flex items-center gap-3 pt-2">
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-border bg-secondary px-3 py-2 text-sm font-medium text-secondary-foreground transition-colors hover:bg-secondary/80"
+                        >
+                          <AiFillGithub size={18} />
+                          GitHub
+                        </a>
+                      )}
+                      {project.live && (
+                        <a
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex flex-1 items-center justify-center gap-2 rounded-lg border border-primary/30 bg-primary/20 px-3 py-2 text-sm font-medium text-primary transition-colors hover:bg-primary/30"
+                        >
+                          <ExternalLink size={16} />
+                          Live Demo
+                        </a>
+                      )}
+                    </div>
                   )}
                 </div>
               </motion.article>
